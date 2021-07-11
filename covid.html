@@ -1,0 +1,125 @@
+<html>
+<style>
+#myInput {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+#myTable {
+  border-collapse: collapse; /* Collapse borders */
+  width: 100%; /* Full-width */
+  border: 1px solid #ddd; /* Add a grey border */
+  font-size: 18px; /* Increase font-size */
+}
+
+#myTable th, #myTable td {
+  text-align: left; /* Left-align text */
+  padding: 12px; /* Add padding */
+}
+
+#myTable tr {
+  /* Add a bottom border to all table rows */
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  /* Add a grey background color to the table header and on hover */
+  background-color: #f1f1f1;
+}
+  </style>
+
+  <body>
+  <h1>What I Think I Know About Covid</h1>
+
+    
+    <p>This is an ongoing project by <a href="https://twitter.com/RHPeel">@RHPeel</a> to track covid-19. Someone else should do something like this but I haven't seen anything like it, so I decided to do it myself.</p>
+Filter: <script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+
+<input id="myInput" onkeyup="myFunction()" placeholder="Search for a contention here." type="text" />
+
+<table id="myTable" border=1 cellpadding=1>
+  <tbody><tr class="header">
+    <th style="width: 25%;">Contention</th>
+    <th style="width: 15%;">Confidence Level</th>
+    <th style="width: 50%;">Why I Believe This</th>
+    <th style="width: 10%;">Updated</th>
+  </tr>
+  <tr>
+    <td>mRNA vaccines are highly effective against covid.</td>
+    <td>High</td>
+    <td>There are a few things that we can point to that are particularly instructive. Obviously the Phase 3 trial results for <a href="https://www.pfizer.com/news/press-release/press-release-detail/pfizer-and-biontech-conclude-phase-3-study-covid-19-vaccine">Pfizer</a> and <a href="https://www.modernatx.com/covid19vaccine-eua/providers/clinical-trial-data">Moderna</a> are overwhelmingly positive. Equally instructive is the strong correlation between case counts at this stage and where vaccine rates are high.</td>
+    <td>7/10/2021</td>
+  </tr>
+  <tr>
+    <td>mRNA vaccines can produce myocarditis in younger people.</td>
+    <td>Medium -> High</td>
+    <td><a href="https://nymag.com/intelligencer/2021/06/israel-detects-link-between-myocarditis-and-covid-vaccine.html">Israel's information</a> has been extremely thorough and ahead of the curve, and I believe that there is a myocarditis risk from covid-19 vaccination, particularly for younger people. This is still a moving target, but I am assuming that this is legitimate at this stage, even if <a href="https://www.cdc.gov/vaccines/covid-19/clinical-considerations/myocarditis.html">the CDC</a> is demurring a bit. I don't think that it's worth <i>not</i> getting the vaccine given this reality, but it is a thing.</td>
+    <td>7/10/2021</td>
+  </tr>
+    <tr>
+    <td>Dexamethasone is a mildly effective treatment for severe covid cases.</td>
+    <td>High</td>
+    <td>This is the <a href="https://www.pennmedicine.org/updates/blogs/penn-physician-blog/2020/november/dexamethasone-and-covid19">standing medical consensus</a> at this point, and I think we've been solidly here for a year. Trump himself <a href="https://www.msn.com/en-us/health/medical/trump-is-taking-dexamethasone-a-steroid-that-can-give-patients-a-false-sense-of-recovery-followed-by-a-crash/ar-BB19Lr7f">got dexamethasone</a> when he was sick.</td>
+    <td>7/10/2021</td>
+  </tr>
+    <tr>
+    <td>Even "mild" covid has potential long-term negative cognitive consequences.</td>
+    <td>Medium</td>
+    <td><a href="https://www.verywellmind.com/what-is-brain-plasticity-2794886#:~:text=Brain%20plasticity%2C%20also%20known%20as%20neuroplasticity%2C%20is%20a,suggesting%20that%20the%20brain%20is%20similar%20to%20plastic">Neuroplasticity</a> is probably doing a lot of the work for us, but it seems increasingly clear that there are serious risks of long-term cognitive decay from covid. The recent <a href="https://www.medrxiv.org/content/10.1101/2021.06.11.21258690v1">UK Biobank study</a> is a bombshell, and provides a parsimonious explanation for the "loss of taste and smell" presentation of covid we've seen. Some questions:
+     <ol><li>Does this imply we're going to have a future epidemic of dementia in the elderly?<li>How protective are the vaccines against this? Does an asymptomatic/mild "breakthrough" infection mean that the brain is still at risk?</ol>
+      To me this is the key covid gap right now. If vaccines protect against cognitive decay in most cases, then we are almost home free. If not, this is going to be a very big long-term problem for societies.</td>
+    <td>7/10/2021</td>
+  </tr>
+      <tr>
+    <td>Kids can spread covid.</td>
+    <td>High</td>
+    <td>I am pretty convinced that most of the "kids don't spread covid" stuff is wishful thinking, and a product of the US mostly putting its fingers in its ears about this stuff. We have good data from <a href="https://www.bmj.com/content/372/bmj.n383">Israel, Italy</a>, and <a href="https://montreal.ctvnews.ca/in-person-school-has-been-driving-montreal-covid-19-infection-rates-study-1.5263882?cache=ptdmkadzxxgvko%3FclipId%3D263414">Canada</a> on this.</td>
+    <td>7/10/2021</td>
+  </tr>
+      <tr>
+      <td>Kids can get long covid, and it is more prevalent than generally believed.</td>
+      <td>High</td>
+      <td>From <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7927578/">this article</a>: "The UK Office for National Statistics's latest report estimates that 12.9 per cent of UK children aged 2 to 11, and 14.5 per cent of children aged 12 to 16, still have symptoms five weeks after their first infection. Almost 500,000 UK children have tested positive for covid-19 since March 2020."</td>
+      <td>7/10/2021</td></tr>
+    <tr>
+      <td>By far and away, the best mental model for thinking about covid is "exposure times time."</td>
+      <td>High</td>
+      <td><a href="https://www.erinbromage.com/post/the-risks-know-them-avoid-them?fbclid=IwAR2z2AwHqrAGgOk0_t1LsbBFC312Z2DdmE1RJmRYK4rKhyBqXUmfKMaO4E0">This piece</a> is over a year old and its message is still not well-understood. The risks of *any* activity for an unvaccinated person are best conceptualized by the "exposure times time" formulation.
+      <ul><li>Indoors, you will get higher viral load exposure, because viral particles aren't dissipated.
+        <li>Going into a grocery store for a few minutes is not too dangerous b/c you're mostly moving in and out. Staying in a small room with a sick person for a few minutes is much more dangerous.
+        <li>Different people are going to expel different amounts of virus, making some people more contagious than others.
+        <li>Vaccinated people are likely spreading <i>less</i> virus, even if they're sick.</ul>
+        A lot of people have tried to come up with hard and fast rules, like "outdoors is safe." This impulse is understandable, but misguided. If you're outdoors, unvaccinated, and a sick person shouts in your face for 10 minutes, you are probably still at significant risk of getting ill (though at lower risk than a similar situation indoors).
+      </td>
+      <td>7/11/2021</td></tr>
+</tbody></table>
+  </body>
+</html>
