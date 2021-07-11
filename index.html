@@ -1,0 +1,52 @@
+Filter: <script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+
+<input id="myInput" onkeyup="myFunction()" type="text" />
+
+<table id="myTable" border=1 cellpadding=1>
+  <tbody><tr class="header">
+    <th style="width: 25%;">Contention</th>
+    <th style="width: 15%;">Confidence Level</th>
+    <th style="width: 50%;">Why I Believe This</th>
+    <th style="width: 10%;">Updated</th>
+  </tr>
+  <tr>
+    <td>mRNA vaccines are highly effective against covid.</td>
+    <td>High</td>
+    <td>Vaccines</td>
+    <td>7/10/2021</td>
+  </tr>
+  <tr>
+    <td>mRNA vaccines can produce myocarditis in younger people.</td>
+    <td>Medium -> High</td>
+    <td>Treatment</td>
+    <td>7/10/2021</td>
+  </tr>
+    <tr>
+    <td>Dexamethasone is a mildly effective treatment for severe covid cases.</td>
+    <td>High</td>
+    <td>This is the <a href="https://www.pennmedicine.org/updates/blogs/penn-physician-blog/2020/november/dexamethasone-and-covid19">standing medical consensus</a> at this point, and I think we've been solidly here for a year. Trump himself <a href="https://www.msn.com/en-us/health/medical/trump-is-taking-dexamethasone-a-steroid-that-can-give-patients-a-false-sense-of-recovery-followed-by-a-crash/ar-BB19Lr7f">got dexamethasone</a> when he was sick.</td>
+    <td>7/10/2021</td>
+  </tr>
+</tbody></table>
